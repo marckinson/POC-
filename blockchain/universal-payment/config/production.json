@@ -1,0 +1,140 @@
+{
+//--------------------------------------------------------------------------------------------------------------------
+//    Local Config
+//--------------------------------------------------------------------------------------------------------------------
+"sslEnable": false,
+"networkProtocol_Secure":"https",                 // If deploying locally, this value needs to be changed to 'http'
+"appProtocol_Secure" : "https",                  // If deploying locally, this value needs to be changed to 'http'
+"hfcProtocol_Secure" : "grpcs",
+"networkProtocol":"http",                 // If deploying locally, this value needs to be changed to 'http'
+"appProtocol" : "http",                  // If deploying locally, this value needs to be changed to 'http'
+"hfcProtocol" : "grpc",
+"chainCodeName" :"universal-payment-chain", 
+//--------------------------------------------------------------------------------------------------------------------
+//    User information - These credentials are used for HFC to enroll this user and then set them as the registrar to create new users.
+//--------------------------------------------------------------------------------------------------------------------
+//Protocol used by HFC to communicate with blockchain peers and CA, need to change this manually.
+"key_store_location":"./keyValStore",
+//Peers
+"peers": [
+    {
+      "discovery_host": "vp0",
+      "discovery_port": 7051,
+      "api_host": "vp0",
+      "api_port_tls": 7050,
+      "api_port": 7050,
+      "event_host": "vp0",
+      "event_port": 7053,
+      "api_url": "http://localhost:5000"
+    },
+    {
+      "discovery_host": "vp1",
+      "discovery_port": 7051,
+      "api_host": "vp1",
+      "api_port_tls": 7050,
+      "api_port": 7050,
+      "event_host": "vp1",
+      "event_port": 7053,
+      "api_url": "http://localhost:5000"
+    },
+    {
+      "discovery_host": "vp2",
+      "discovery_port": 7051,
+      "api_host": "vp2",
+      "api_port_tls": 7050,
+      "api_port": 7050,
+      "event_host": "vp2",
+      "event_port": 7053,
+      "api_url": "http://localhost:5000"
+    },
+    {
+      "discovery_host": "vp3",
+      "discovery_port": 7051,
+      "api_host": "vp3",
+      "api_port_tls": 7050,
+      "api_port": 7050,
+      "event_host": "vp3",
+      "event_port": 7053,
+      "api_url": "http://localhost:5000"
+    }
+  ],
+"ca": {
+    "discovery_host": "membersrvc",
+    "discovery_port": 7054
+},
+"api": {
+  //When using blockchain on bluemix, api_port_external and api_port_internal will be the same
+  "port_external":7050, //port number used when calling api from outside of the vagrant environment
+  "port_internal":7051, //port number used when calling api from inside vagrant environment - generally used for chaincode calling out to api
+  "port_discovery":7051, //port number used for HFC
+  "ip":"vp0"
+},
+"registrar":{
+  "username":"WebAppAdmin",
+  "password":"DJY27pEnl16d"
+  },
+"users":[
+  {
+      "enrollmentID": "Bank_Blue",
+      "attributes": [
+          {"name": "role", "value": "client"},
+          {"name": "username", "value": "Bank_Blue"},
+          {"name": "allowed_handlers", "value": "Clearing_House_A"}
+      ],
+      "registrar": {},
+      "roles": [],
+      "affiliation": "bank_a"
+  },
+  {
+      "enrollmentID": "Bank_Red",
+      "attributes": [
+          {"name": "role", "value": "client"},
+          {"name": "username", "value": "Bank_Red"},
+          {"name": "allowed_handlers", "value": "Clearing_House_B"}
+      ],
+      "registrar": {},
+      "roles": [],
+      "affiliation": "bank_b"
+  },
+  {
+      "enrollmentID": "Bank_Yellow",
+      "attributes": [
+          {"name": "role", "value": "client"},
+          {"name": "username", "value": "Bank_Yellow"},
+          {"name": "allowed_handlers", "value": "Clearing_House_A;Clearing_House_B"}
+      ],
+      "registrar": {},
+      "roles": [],
+      "affiliation": "bank_c"
+  },
+  {
+      "enrollmentID": "Clearing_House_A",
+      "attributes": [
+          {"name": "role", "value": "neutral_authority"},
+          {"name": "username", "value": "Clearing_House_A"}
+      ],
+      "registrar": {},
+      "roles": [],
+      "affiliation": "institution_a"
+  },
+  {
+      "enrollmentID": "Clearing_House_B",
+      "attributes": [
+          {"name": "role", "value": "neutral_authority"},
+          {"name": "username", "value": "Clearing_House_B"}
+      ],
+      "registrar": {},
+      "roles": [],
+      "affiliation": "institution_a"
+  },
+  {
+      "enrollmentID": "Regulator_A",
+      "attributes": [
+          {"name": "role", "value": "auditor_authority"},
+          {"name": "username", "value": "Regulator_A"}
+      ],
+      "registrar": {},
+      "roles": [],
+      "affiliation": "institution_b"
+  }]
+}

@@ -1,0 +1,27 @@
+# java build
+**/target
+
+# IntelliJ
+.idea
+
+# npm dependencies
+node_modules/
+npm-debug.log
+
+# Mac
+**/.DS_Store
+
+coverage/
+.vscode
+
+
+**/chaincode/src/universal_payment/vendor/
+
+**/config/default.json
+
+universal-payment/chaincodeID.txt
+universal-payment/keyValStore/
+**/logs/
+*.exe
+
+universal-payment/uploads/

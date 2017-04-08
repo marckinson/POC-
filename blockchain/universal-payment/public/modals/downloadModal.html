@@ -1,0 +1,60 @@
+<!-- BE CAREFULL THIS HTML CODE IS INJECTED INSIDE INDEX.HTML PATH WILL BE RESOLVED IN INDEX.HTML-->
+<div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Download File</h2>
+                            <hr class="star-primary">
+                            <img src="images/extensions/download.png" class="img-responsive img-centered" alt="">
+                            <p>This extension is complementary with the upload extension. Indeed, with a given Uint8array, it allows you to find and download the file. The Uint8array represents the hash of the file, in our demo it is the sha512.</p>
+
+
+                            <h3>Get File</h3>
+                            <form name="downloadFile" action="/api/download" method="GET" id="downloadFile" validate>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Uint8 Array</label>
+                                        <input type="text" class="form-control" placeholder="Uint8 Array" id="ui8" name="ui8" required data-validation-required-message="Please enter a valid Uint8 Array">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div id="success"></div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                        <button type="button" class="btn btn-lg" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <ul class="list-inline item-details">
+                                <li>Team:
+                                    <strong>BlockBusters</strong>
+                                </li>
+                                <li>Date:
+                                    <strong>February 2017
+                                </strong>
+                                </li>
+                                <li>Service:
+                                    <strong>Download File
+                                </strong>
+                                </li>
+                                <li>Team Google Site:
+                                    <strong><a href="https://sites.google.com/view/blockbusters-hackathon/home">Site</a>
+                                </strong>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

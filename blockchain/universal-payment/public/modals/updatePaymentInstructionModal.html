@@ -1,0 +1,114 @@
+<!-- BE CAREFULL THIS HTML CODE IS INJECTED INSIDE INDEX.HTML PATH WILL BE RESOLVED IN INDEX.HTML-->
+<div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+            <div class="rl">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="modal-body">
+                    <h2>Handle a payment instruction</h2>
+                    <hr class="star-primary">
+                    <img src="images/api/update.png" class="img-responsive img-centered" alt="">
+                    
+                    <p>Use this form to "handle" a created payment instruction. You first have to select the handler you want to represent
+                        to be able to view the payments it has to handle. You can then select the Handling Status of each payment and submit
+                        the form.
+                    </p>
+
+                    <hr />
+
+                    <p>
+                        As a clearing house, successfully handling payment instruction(s) should be followed by creating new payment instruction(s)
+                        (see the description of the payment instruction creation form).
+                    </p>
+                    <h3>Handle a payment</h3>
+					<form name="updatePaymentInstruction" action="/api/payment" method="PUT"
+						id="updatePaymentInstruction" data-async enctype="application/json"
+						success-msg="The payment has been updated" data-table="#updateTable"
+						error-msg="An error occurred while updating the payment" 
+						data-target="#jsonResult" validate>
+						<div class="row control-group">
+							<div class="form-group col-xs-offset-4 col-xs-4 floating-label-form-group controls">
+								<label>Handler</label>
+								<select id="updateHandler" name="handler" class="form-control"
+									onchange="changeEmitter(this);">
+									<option disabled selected value>--Select an Handler--</option>
+									<option value="Bank_Red">Bank_Red</option>
+									<option value="Bank_Blue">Bank_Blue</option>
+									<option value="Bank_Yellow">Bank_Yellow</option>
+									<option value="Clearing_House_A">Clearing_House_A</option>
+									<option value="Clearing_House_B">Clearing_House_B</option>
+								</select>
+								<input type="hidden" name="status" value="">
+								<input type="hidden" name="checksum" value="">
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+					</form>
+                <br>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div id="updateSuccess" >
+             <button data-toggle="collapse" type="button" class="btn btn-lg" 
+                        data-target="#update-rest-result">Toggle JSON result</button>
+                        <br>
+                <br>
+                <pre id="update-rest-result" class="collapse"></pre>
+                <div class="payments_list">
+                    <table id="updateTable" data-toolbar="#toolbar"
+                    data-search="true"
+                    data-show-refresh="false"
+                    data-show-toggle="false"
+                    data-show-columns="true"
+                    data-show-pagination-switch="true"
+                    data-pagination="true"
+                    data-sort-name="staSrgazers_count"
+                    data-sort-order="desc">
+                    <caption>List of payments</caption>
+                    <thead>
+                        <tr>
+                            <th data-field="state" data-radio="true"></th>
+                            <th data-sortable="true" data-field="date" data-formatter="dateFormatter">Date</th>
+                            <th data-sortable="true" data-field="emitter">Emmiter</th>
+                            <th data-sortable="true" data-field="network">Network Payment</th>
+                            <th data-sortable="true" data-field="handler">Handler</th>
+                            <th data-sortable="true" data-formatter="handlingFormatter" data-field="handling_status">Handling Status</th>
+                            <th data-sortable="false" data-field="checksum" data-formatter="hashFormatter">Uint8Array As CheckSum</th>
+                            <th data-sortable="false" data-field="hash_function">Hash Function Used</th>
+                            <th data-sortable="true" data-field="handling_date" data-formatter="dateFormatter">Handling Date</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="form-group col-xs-12">
+			<button type="button" id="updateReceived" class="btn btn-success btn-lg">Validate</button>
+			<button type="button" id="updateCorrupted" class="btn btn-danger btn-lg">Corrupt</button>
+			<button type="button" id="updateCustom" class="btn btn-info btn-lg">Custom Status</button>
+			<button type="button" class="btn btn-lg" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+        </div>
+        <ul class="list-inline item-details">
+        <li>Team:
+            <strong>BlockBusters</strong>
+        </li>
+        <li>Date:
+            <strong>February 2017
+            </strong>
+        </li>
+        <li>Service:
+            <strong>Update payment
+            </strong>
+        </li>
+        <li>Team Google Site:
+            <strong><a href="https://sites.google.com/view/blockbusters-hackathon/home">Site</a>
+            </strong>
+        </li>
+        </ul>
+    </div>
+</div>

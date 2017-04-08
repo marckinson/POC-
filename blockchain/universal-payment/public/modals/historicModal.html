@@ -1,0 +1,95 @@
+<!-- BE CAREFULL THIS HTML CODE IS INJECTED INSIDE INDEX.HTML PATH WILL BE RESOLVED IN INDEX.HTML-->
+<div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+            <div class="rl">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="modal-body">
+                    <h2>Historic</h2>
+                    <hr class="star-primary">
+                    <img src="images/api/history.png" class="img-responsive img-centered" alt="">
+                    <p>The history allows you to view the list of payments with their status. Select a user to view his payment list. You can see the issue of the payment and the date of its change of status.</p>
+                    <p>The Regulator does not belong to the same institution and has an auditor role. It has the right to consult all payments.</p>
+
+                    <p>In addition, you can directly download the SEPA / SWIFT payment file, which uses the download extension.</p>
+                    <h3>Get History</h3>
+                    <form name="historyPaymentInstruction" action="/api/payment" method="GET" id="historyPaymentInstruction">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-offset-4 col-xs-4 floating-label-form-group controls">
+                                <label>Emitter</label>
+                                <select id="usernameHistory" name="usernameHistory" class="form-control"  onchange="changeEmitter(this);">
+                                    <option disabled selected value>--Select an Emitter--</option>
+                                    <option value="Bank_Red">Bank_Red</option>
+                                    <option value="Bank_Blue">Bank_Blue</option>
+                                    <option value="Bank_Yellow">Bank_Yellow</option>
+                                    <option value="Clearing_House_A">Clearing_House_A</option>
+                                    <option value="Clearing_House_B">Clearing_House_B</option>
+                                    <option value="Regulator_A">Regulator</option>
+                                </select>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="historySuccess" class="col-lg-12">
+                <button data-toggle="collapse" type="button" class="btn btn-lg" 
+                data-target="#history-rest-result">Toggle JSON result</button>
+                <br><br>
+                <pre id="history-rest-result" class="collapse"></pre>
+                <div class="payments_list">
+                    <table id="historyTable" data-toolbar="#toolbar"
+                    data-search="true"
+                    data-show-refresh="false"
+                    data-show-toggle="false"
+                    data-show-columns="true"
+                    data-show-pagination-switch="true"
+                    data-pagination="true"
+                    data-sort-name="staSrgazers_count"
+                    data-sort-order="desc">
+                    <caption>List of payments</caption>
+                    <thead>
+                        <tr>
+                            <th data-sortable="true" data-field="date" data-formatter="dateFormatter">Date</th>
+                            <th data-sortable="true" data-field="emitter">Emmiter</th>
+                            <th data-sortable="true" data-field="network">Network Payment</th>
+                            <th data-sortable="true" data-field="handler"  >Handler</th>
+                            <th data-sortable="true" data-field="handling_status" data-formatter="handlingFormatter">Handling Status</th>
+                            <th data-sortable="false" data-field="checksum" data-formatter="hashFormatter">Uint8Array As CheckSum</th>
+                            <th data-sortable="false" data-field="hash_function">Hash Function Used</th>
+                            <th data-sortable="true" data-field="handling_date" data-formatter="dateFormatter">Handling Date</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <br>
+            <div class="form-group col-xs-12">
+                <button type="button" class="btn btn-lg" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+            </div>
+
+            <ul class="list-inline item-details">
+                <li>Team:
+                    <strong>BlockBusters</strong>
+                </li>
+                <li>Date:
+                    <strong>February 2017
+                    </strong>
+                </li>
+                <li>Service:
+                    <strong>Historic
+                    </strong>
+                </li>
+                <li>Team Google Site:
+                    <strong><a href="https://sites.google.com/view/blockbusters-hackathon/home">Site</a>
+                    </strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>

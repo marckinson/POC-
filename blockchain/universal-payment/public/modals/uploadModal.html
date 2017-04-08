@@ -1,0 +1,79 @@
+<!-- BE CAREFULL THIS HTML CODE IS INJECTED INSIDE INDEX.HTML PATH WILL BE RESOLVED IN INDEX.HTML-->
+<div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+            <div class="rl">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="modal-body">
+                    <h2>Upload File</h2>
+                    <hr class="star-primary">
+                    <img src="images/extensions/upload.png" class="img-responsive img-centered" alt="">
+                    <p>In order to realize a mocked file management API, we have provided this extension in our demo / POC. This extension stores the file in back-end and provides directly the checksum obtained via the chaincode. Here, the supplied checkSum represents the sha512 of the file and is converted to Uint8Array in order to avoid encoding problems but it can be another hash function. The chaincode has a reference status on the hash function.</p>
+                    <hr/> 
+                    <p>Ideally, we will use a file management API of the bank. This extension is used in the make payment instructions in order to save the file to better find it.</p> <p><strong>Note</strong>: we do not save the file in the chaincode only its hash/checksum (Uint8Array). In the demo context, the lifetime of the files is therefore limited to the back-end process node</p>
+
+
+                    <h3>Post File</h3>
+                    <form name="uploadFile" action="/api/upload" method="POST" id="uploadFile" enctype="multipart/form-data" data-async success-msg="The file has been uploaded successfully"
+                    error-msg="The file was not uploaded"
+                    data-target="#jsonResult" validate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-4 floating-label-form-group controls">
+                            <label>User</label>
+                            <select id="username" name="username" class="form-control" required data-validation-required-message="Please select a valid user to query hash file">
+                              <option disabled selected value>--Select a User--</option>
+                              <option value="Bank_Red">Bank_Red</option>
+                              <option value="Bank_Yellow">Bank_Yellow</option>
+                              <option value="Bank_Blue">Bank_Blue</option>
+                              <option value="Clearing_House_A">Clearing_House_A</option>
+                              <option value="Clearing_House_B">Clearing_House_B</option>
+                          </select>
+                          <p class="help-block text-danger"></p>
+                      </div>
+                  </div>
+                  <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>File</label>
+                        <input type="file" class="form-control" placeholder="File" id="bankingFile" name="bankingFile" required data-validation-required-message="Please select a file.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <br>
+                <div id="success"></div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <button type="submit" class="btn btn-success btn-lg">Send</button>
+                        <button type="button" class="btn btn-lg" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </form>
+
+            <ul class="list-inline item-details">
+                <li>Team:
+                    <strong>BlockBusters</strong>
+                </li>
+                <li>Date:
+                    <strong>February 2017
+                    </strong>
+                </li>
+                <li>Service:
+                    <strong>Upload File
+                    </strong>
+                </li>
+                <li>Team Google Site:
+                    <strong><a href="https://sites.google.com/view/blockbusters-hackathon/home">Site</a>
+                    </strong>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+</div>
+</div>

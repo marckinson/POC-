@@ -1,0 +1,114 @@
+  <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Create a payment instruction</h2>
+                            <hr class="star-primary">
+                            <img src="images/api/payment.png" class="img-responsive img-centered" alt="">
+                            <p>Use this form to push a payment instruction into the system. You must select the emitting bank (or clearing house), 
+                                the payment network (SEPA, SWIFT...), the receiving bank (or clearing house), and the payment informations contained inside a file (this file is unique by its hash).
+                                Summerized, the existing workflow (without this system) consists of a bank sending multiple payments (aimed at multiple banks) 
+                                contained inside a file to a clearing house. The clearing house then groups and redirects those payments to the involved banks.
+                                This system allow the current workflow to be applied, but also allows banks to direclty communicate between themselves and 
+                                potentially use smart contract(s) to take care of the clearing houses role.
+                            </p>
+                            <hr />
+                            <p>
+                                Note: each payment network has different rules concerning the formatting of the payment files. 
+                                These rules are not enforced by this proof of concept but should be dealt with server side.
+                                This proof of concept still allows the payment instruction handler to declare the payment instruction 
+                                as corrupted / badly formatted (see the payment instruction handling form). You can not create a payment twice with the same file, the principle of storing the checksum in the chaincode allows to preserve the uniqueness of each transaction.
+                            </p>
+                            <h3>Create a payment</h3>
+                            <form name="createPaymentInstruction" action="/api/payment" method="POST"
+								id="createPaymentInstruction" data-async enctype="multipart/form-data"
+								success-msg="The payment has been submitted correctly"
+								error-msg="The payment has not been submitted"
+								data-target="#jsonResult" validate>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Emitter</label>
+                                        <select required id="emitter" name="emitter" class="form-control">
+                                            <option disabled selected value>--Select an Emitter--</option>
+                                            <option value="Bank_Red">Bank_Red</option>
+                                            <option value="Bank_Yellow">Bank_Yellow</option>
+                                            <option value="Bank_Blue">Bank_Blue</option>
+                                            <option value="Clearing_House_A">Clearing_House_A</option>
+                                            <option value="Clearing_House_B">Clearing_House_B</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Payment Network</label>
+                                        <select required id="network" name="network" class="form-control">
+                                            <option disabled selected value>--Select a Payment Network--</option>
+                                            <option value="sepa">SEPA</option>
+                                            <option value="swift">SWIFT</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Payment(s) file</label>
+                                        <input type="file" class="form-control" placeholder="File" id="bankingFile" name="bankingFile" required data-validation-required-message="Please select a file.">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Handler</label>
+                                        <select required id="handler" name="handler" class="form-control">
+                                            <option disabled selected value>--Select an Handler--</option>
+                                            <option value="Bank_Red">Bank_Red</option>
+                                            <option value="Bank_Blue">Bank_Blue</option>
+                                            <option value="Bank_Yellow">Bank_Yellow</option>
+                                            <option value="Clearing_House_A">Clearing_House_A</option>
+                                            <option value="Clearing_House_B">Clearing_House_B</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div id="success"></div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                        <button type="button" class="btn btn-lg" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <ul class="list-inline item-details">
+                                <li>Team:
+                                    <strong>BlockBusters</strong>
+                                </li>
+                                <li>Date:
+                                    <strong>February 2017
+                            </strong>
+                                </li>
+                                <li>Service:
+                                    <strong>Upload File
+                            </strong>
+                                </li>
+                                <li>Team Google Site:
+                                    <strong><a href="https://sites.google.com/view/blockbusters-hackathon/home">Site</a>
+                                </strong>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

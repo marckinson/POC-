@@ -1,0 +1,45 @@
+  <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Change current user</h2>
+                            <hr class="star-primary">
+                            <img src="images/api/event.png" class="img-responsive img-centered" alt="">
+                            <p>This form is used to change the current application context user</p>
+                            <p>@TODO : In a future release, we will be able to fully manage a user context</p>
+
+
+                            <h3>Change current application User</h3>
+                            <form name="changeCurrentUserForm" action="#" id="changeCurrentUserForm" onsubmit="return changeCurrentUserSubmit();" validate>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-4 col-xs-offset-4 floating-label-form-group controls">
+										<label class="form-label" for="userSelection" >Change the current user</label>
+										<select id="userSelection" class="form-control">
+											<option value=""></option>
+										</select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div id="success"></div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                        <button type="button" class="btn btn-lg" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

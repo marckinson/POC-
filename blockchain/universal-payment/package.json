@@ -1,0 +1,29 @@
+{
+  "name": "universal-payment",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "config": "^1.25.1",
+    "cookie-parser": "~1.4.3",
+    "dateformat": "^2.0.0",
+    "express": "~4.14.1",
+    "fs": "",
+    "hfc": "^0.6.5",
+    "morgan": "~1.7.0",
+    "multer": "^1.3.0",
+    "request": "^2.79.0",
+    "serve-favicon": "^2.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/capblockchain/blockchain/"
+  },
+  "engines": {
+    "node": "^6.9.1",
+    "npm": "^3.10.8"
+  }
+}
